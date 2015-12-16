@@ -3,7 +3,6 @@ package com.example.vinson_chen.week4_app;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -16,10 +15,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -28,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     DemoCollectionPagerAdapter mDemoCollectionPagerAdapter;
-    int fragment_count = 5;
+    int fragment_count = 8;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,12 +64,14 @@ public class MainActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        Log.d("Vinson", "onOptionsItemSelected");
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            fragment_count++;
+            fragment_count+=1;
+            int temp = tabLayout.getSelectedTabPosition();
             mDemoCollectionPagerAdapter.notifyDataSetChanged();
-            Log.d("Vinson", "" + fragment_count);
+            tabLayout.setupWithViewPager(viewPager);
+            viewPager.setCurrentItem(temp);
+            Log.d("Vinson",""+temp);
             return true;
         }
 

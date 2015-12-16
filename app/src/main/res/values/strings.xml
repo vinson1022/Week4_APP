@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Week4_APP</string>
     <string name="one">ONE</string>
-    <string name="action_settings">setting</string>
+    <string name="action_settings">ADD</string>
 </resources>
